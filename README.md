@@ -1,6 +1,6 @@
 # Full‑Stack Sample Repo (Python FastAPI + React + AWS + CI/CD)
 
-This repo is a practical scaffold to practice and demonstrate senior-level skills across **Python backend**, **React frontend**, **AWS (ECS/Fargate + S3/CloudFront)**, **CI/CD**, **microservices patterns**, and **SQL (Postgres)**.
+This repo is to practice and demonstrate to all level skills across **Python backend**, **React frontend**, **AWS (ECS/Fargate + S3/CloudFront)**, **CI/CD**, **microservices patterns**, and **SQL (Postgres)**.
 
 > Built for local development first. Then gradually containerize and deploy to AWS using the included workflows and Terraform skeleton.
 
