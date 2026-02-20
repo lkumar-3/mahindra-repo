@@ -3,8 +3,8 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from typing import List
 from functools import lru_cache
-from auth import get_current_user
-from models import Order, async_session, select, init_db
+from backend.auth import get_current_user
+from backend.models import Order, async_session, select, init_db
 import asyncio
 
 app = FastAPI(title="Orders API")
