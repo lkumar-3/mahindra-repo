@@ -1,0 +1,78 @@
+MENU_PROMPT = '\nEnter "c" to create a blog, "l" to list them, "u" to update one, "d" to delete one, or "q" to quit: '
+choices = ['c', 'l', 'u', 'd']
+
+blogs = []
+
+
+def blog_list():
+    print('Blogs List:')
+    if blogs:
+        for i, blog in enumerate(blogs, start=1):
+            print(f"{i}. {blog}")
+    else:
+        print("No records available in blogs")
+
+
+def blog_create():
+    print('Creating Blog...')
+    blog_name = input("Enter your blog name: ")
+    blogs.append(blog_name)
+    print(f'*** "{blog_name}" created successfully ***')
+
+
+def blog_update():
+    print('Update Blog')
+    if blogs:
+        blog_list()
+        try:
+            index = int(input("Enter the number of the blog to update: ")) - 1
+            if 0 <= index < len(blogs):
+                new_name = input("Enter the new blog name: ")
+                old_name = blogs[index]
+                blogs[index] = new_name
+                print(f'*** "{old_name}" updated to "{new_name}" successfully ***')
+            else:
+                print("Invalid selection")
+        except ValueError:
+            print("Please enter a valid number")
+    else:
+        print('No records to update | first create a new blog')
+
+
+def blog_delete():
+    print('Delete Blog')
+    if blogs:
+        blog_list()
+        try:
+            index = int(input("Enter the number of the blog to delete: ")) - 1
+            if 0 <= index < len(blogs):
+                removed = blogs.pop(index)
+                print(f'*** "{removed}" deleted successfully ***')
+            else:
+                print("Invalid selection")
+        except ValueError:
+            print("Please enter a valid number")
+    else:
+        print("No records available in blogs to delete")
+
+
+def blog_menu():
+    print("Your Option are:", choices)
+    selection = input(MENU_PROMPT)
+    while selection != 'q':
+        if selection == 'c':
+            blog_create()
+        elif selection == 'l':
+            blog_list()
+        elif selection == 'u':
+            blog_update()
+        elif selection == 'd':
+            blog_delete()
+        else:
+            print('Please enter a valid option')
+        print("Your Option are:", choices)
+        selection = input(MENU_PROMPT)
+
+
+if __name__ == '__main__':
+    blog_menu()
